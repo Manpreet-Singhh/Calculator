@@ -16,6 +16,10 @@ export default function Calculator() {
 
   const handleCalculate = () => {
     try {
+      if (input.trim() === "" || "+-*/".includes(input.slice(-1))) {
+        setResult("Error");
+        return;
+      }
       const calculatedResult = eval(input);
       if (calculatedResult === Infinity || calculatedResult === -Infinity) {
         setResult("Infinity");
